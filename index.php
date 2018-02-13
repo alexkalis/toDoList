@@ -1,26 +1,4 @@
-<?php
-$errors = "";
-
-$db = mysqli_connect("localhost", "root", "", "todo");
-
-if (isset($_POST['submit'])) {
-  if(empty($_POST['task'])) {
-    $erros = "You must fill in the task";
-  }else {
-    $tijd = $_POST['tijd'];
-    $task = $_POST['task'];
-      $sql = "INSERT INTO tasks (task, tijd) VALUES ('$task','$tijd')";
-    mysqli_query($db, $sql);
-    header('Location: index.php');
-  }
-}
-if (isset($_GET['del_task'])) {
-	$id = $_GET['del_task'];
-
-	mysqli_query($db, "DELETE FROM tasks WHERE id=".$id);
-	header('location: index.php');
-}
- ?>
+<?php  include('php_code.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -36,6 +14,9 @@ if (isset($_GET['del_task'])) {
     <input type="text" name="task" class="task_input">
     <input type="text" name="tijd" class="task_input">
     <button type="submit" name="submit" id="add_btn" class="add_btn">Add task</button>
+
+
+
   </form>
 <table>
   <thead>
@@ -56,8 +37,14 @@ if (isset($_GET['del_task'])) {
   				<td> <?php echo $i; ?> </td>
   				<td class="task"> <?php echo $row['task']; ?> </td>
           <td class="tijd"> <?php echo $row['tijd']; ?> </td>
+          <td>
+				<a href="index.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
+			</td>
   				<td class="delete">
   					<a href="index.php?del_task=<?php echo $row['id'] ?>">x</a>
+
+
+
   				</td>
   			</tr>
   		<?php $i++; } ?>
