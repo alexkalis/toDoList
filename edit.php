@@ -14,21 +14,21 @@ if(isset($_POST['update']))
     // checking empty fields
     if(empty($task) || empty($tijd) || empty($lists_id)) {
         if(empty($task)) {
-            echo "<font color='red'>Name field is empty.</font><br/>";
+            echo "<font color='red'>Task field is empty.</font><br/>";
         }
 
         if(empty($tijd)) {
-            echo "<font color='red'>Age field is empty.</font><br/>";
+            echo "<font color='red'>Tijd field is empty.</font><br/>";
         }
 
         if(empty($lists_id)) {
-            echo "<font color='red'>Email field is empty.</font><br/>";
+            echo "<font color='red'>Lists_id field is empty.</font><br/>";
         }
     } else {
         //updating the table
-        $result = mysqli_query($db,$mysqli, "UPDATE tasks SET task='$task',tijd='$tijd',lists_id='$lists_id' WHERE task_id= $id");
 
-
+        $sqli = "UPDATE tasks SET task='$task',tijd='$tijd',lists_id='$lists_id' WHERE task_id= $id";
+        mysqli_query($db, $sqli);
         //redirectig to the display page. In our case, it is index.php
         header("Location: index.php");
     }

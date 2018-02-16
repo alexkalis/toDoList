@@ -25,8 +25,8 @@ if(isset($_POST['update']))
         }
     } else {
         //updating the table
-        $result = mysqli_query($db,$mysqli, "UPDATE tasks SET task='$task',tijd='$tijd',lists_id='$lists_id' WHERE task_id= $id");
-
+        $sql = "UPDATE tasks SET task='$task',tijd='$tijd',lists_id='$lists_id' WHERE task_id= $id";
+        mysqli_query($db, $sql);
 
         //redirectig to the display page. In our case, it is index.php
         header("Location: indexId.php");
@@ -56,7 +56,7 @@ while($res = mysqli_fetch_array($result))
 </head>
 
 <body>
-    <a href="index.php">Home</a>
+    <a href="lindex.php">Home</a>
     <br/><br/>
 
     <form name="form1" method="post" action="edit.php">

@@ -4,7 +4,7 @@ $db = mysqli_connect("localhost", "root", "", "todo");
 
 if(isset($_POST['update1']))
 {
-    $id = $_GET['edit'];
+    $id = $_POST['edit'];
 
     $name=$_POST['name'];
 
@@ -14,8 +14,9 @@ if(isset($_POST['update1']))
             echo "<font color='red'>Name field is empty.</font><br/>";
     } else {
         //updating the table
-        $result = mysqli_query($db, "UPDATE lists SET name='$name' WHERE id=$id");
 
+        $sqli = "UPDATE lists SET name='$name' WHERE id=$id";
+        mysqli_query($db, $sqli);
         //redirectig to the display page. In our case, it is index.php
         header("Location: lindex.php");
     }
@@ -44,15 +45,15 @@ while($res = mysqli_fetch_array($result))
     <a href="index.php">Home</a>
     <br/><br/>
 
-    <form name="form2" method="post" action="ledit.php">
+    <form name="form1" method="post" action="ledit.php">
         <table border="0">
             <tr>
                 <td>Name</td>
-                <td><input type="text" name="name" value="<?php echo $name  ;?>"></td>
+                <td><input type="text" name="name" value="<?php echo $name;?>"></td>
             </tr>
 
             <tr>
-                <td><input type="hidden" name="id" value=<?php echo $_GET['edit'];?>></td>
+                <td><input type="hidden" name="edit" value=<?php echo $_GET['edit'];?>></td>
                 <td><input type="submit" name="update1" value="Update"></td>
             </tr>
         </table>
