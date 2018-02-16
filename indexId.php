@@ -16,6 +16,9 @@
     <input type="text" name="tijd" class="task_input">
     <input type="text" name="lists_id" class="task_input">
     <button type="submit" name="submit" id="add_btn" class="add_btn">Add task</button>
+
+
+
   </form>
 <table>
   <thead>
@@ -32,7 +35,11 @@
   		<?php
   		// select all tasks if page is visited or refreshed
       $query = "SELECT * FROM tasks";
+      if (isset($_GET['link_task'])) {
+      	$id = $_GET['link_task'];
 
+        $query = $query . " INNER JOIN lists ON tasks.lists_id = lists.id where lists.id =" . $id;
+      }
 
   		$tasks = mysqli_query($db, $query);
   		$i = 1; while ($row = mysqli_fetch_array($tasks)) { ?>
@@ -41,12 +48,14 @@
   				<td class="task"> <?php echo $row['task']; ?> </td>
           <td class="tijd"> <?php echo $row['tijd']; ?> </td>
           <td class="tasks_id"><?php echo $row['task_id']?></td>
+
           <td class="list_id"><?php echo $row['lists_id']?></td>
           <td>
-				<a href="edit.php?edit=<?php echo $row['task_id']; ?>" class="edit_btn" >Edit</a>
+				<a href="editId.php?edit=<?php echo $row['task_id']; ?>" class="edit_btn" >Edit</a>
 			</td>
   				<td class="delete">
-            <a href="index.php?del_task=<?php echo $row['task_id'] ?>">x</a>
+  					<a href="index.php?del_task=<?php echo $row['id'] ?>">x</a>
+
 
   				</td>
   			</tr>

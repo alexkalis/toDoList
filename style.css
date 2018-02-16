@@ -48,11 +48,12 @@ table {
 
 tr {
 	border-bottom: 1px solid #cbcbcb;
+  background: #E9E9E9;
 }
 
 th {
 	font-size: 19px;
-	color: #6B8E23;
+	color: FireBrick;
 }
 
 th, td{
@@ -63,7 +64,7 @@ th, td{
 }
 td {
   font-size: 19px;
-  color:#6B8E23 ;
+  color: FireBrick ;
 }
 tr:hover {
 	background: #E9E9E9;
