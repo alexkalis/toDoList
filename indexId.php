@@ -15,7 +15,7 @@
     <input type="text" name="task" class="task_input">
     <input type="text" name="tijd" class="task_input">
     <input type="text" name="lists_id" class="task_input">
-    <button type="submit" name="list_input" id="add_btn" class="add_btn">Add task</button>
+    <button type="submit" name="submit" id="add_btn" class="add_btn">Add task</button>
 
 
 

@@ -1,5 +1,8 @@
 <?php  include('php_code.php'); ?>
 
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +19,10 @@
     <input type="text" name="tijd" class="task_input">
     <input type="text" name="lists_id" class="task_input">
     <button type="submit" name="submit" id="add_btn" class="add_btn">Add task</button>
+
   </form>
+
+   </select>
 <table>
   <thead>
     <tr>
@@ -31,7 +37,7 @@
   <tbody>
   		<?php
   		// select all tasks if page is visited or refreshed
-      $query = "SELECT * FROM tasks";
+        $query = "SELECT * FROM tasks";
 
 
   		$tasks = mysqli_query($db, $query);
@@ -51,6 +57,7 @@
   				</td>
   			</tr>
   		<?php $i++; } ?>
+
   	</tbody>
 </body>
 </html>
