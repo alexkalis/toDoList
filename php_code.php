@@ -11,12 +11,13 @@ if (isset($_POST['submitId'])) {
   if(empty($_POST['task'])) {
     $errors = "You must fill in the task";
   }else {
+    $id = $_GET['link_task'];
     $lists_id = $_POST['lists_id'];
     $tijd = $_POST['tijd'];
     $task = $_POST['task'];
     $sqli = "INSERT INTO tasks (lists_id, task, tijd) VALUES ('$lists_id','$task','$tijd')";
     mysqli_query($db, $sqli);
-    header('Location: index.php');
+    header('Location: index.php?link_task'. $id);
   }
 };
 if (isset($_POST['submit'])) {
@@ -66,7 +67,6 @@ if (isset($_GET['del_task2'])) {
 //     $tijd = $n['tijd'];
 //   }
 // }
-
 
 
 

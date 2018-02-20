@@ -44,6 +44,10 @@ table {
     width: 50%;
     margin: 30px auto;
     border-collapse: collapse;
+    text-align: right;
+    color: 	#6B8E23;
+    background: #E9E9E9;
+
 }
 
 tr {
@@ -90,4 +94,31 @@ tr:hover {
     background: #2E8B57;
     color: white;
     border-radius: 3px;
+}
+
+a:link, a:visited {
+
+    background-color: #2E8B57;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 3px;
+}
+a:hover, a:active {
+    background-color: red;
+}
+.button:link, .button:visited {
+
+    background-color: #2E8B57;
+    color: white;
+    padding: 15px 45px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 3px;
+}
+a:hover, a:active {
+    background-color: red;
 }

@@ -1,8 +1,4 @@
 <?php  include('php_code.php'); ?>
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +6,11 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<a href="lindex.php">Lindex</a>
+  <li class="home">
+  <a href="index.php" class="button">Index</a>
+  <a href="lindex.php" class="button">Lindex</a>
+  <a href="filter-tijd.php" class="button">Filter</a>
+</li>
   <div class="heading">
     <h2 style="font-style:'Hervetica';">ToDo List Application PHP and MySQL database</h2>
   </div>
@@ -23,7 +23,7 @@
   </form>
 
    </select>
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Nr:</th>
@@ -38,8 +38,6 @@
   		<?php
   		// select all tasks if page is visited or refreshed
         $query = "SELECT * FROM tasks";
-
-
   		$tasks = mysqli_query($db, $query);
   		$i = 1; while ($row = mysqli_fetch_array($tasks)) { ?>
 

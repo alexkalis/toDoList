@@ -6,8 +6,11 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <a href="index.php">Index</a>
-
+  <li class="home">
+  <a href="index.php" class="button">Index</a>
+  <a href="lindex.php" class="button">Lindex</a>
+  <a href="filter-tijd.php" class="button">Filter</a>
+</li>
   <div class="heading">
     <h2 style="font-style:'Hervetica';">List Application PHP and MySQL database</h2>
   </div>

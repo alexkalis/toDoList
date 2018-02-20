@@ -7,7 +7,11 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<a href="lindex.php">Lindex</a>
+  <li class="home">
+  <a href="index.php" class="button">Index</a>
+  <a href="lindex.php" class="button">Lindex</a>
+  <a href="filter-tijd.php" class="button">Filter</a>
+</li>
   <div class="heading">
     <h2 style="font-style:'Hervetica';">ToDo List Application PHP and MySQL database</h2>
   </div>
@@ -16,7 +20,6 @@
     <input type="text" name="tijd" class="task_input">
     <input type="text" name="lists_id" class="task_input">
     <button type="submit" name="submit" id="add_btn" class="add_btn">Add task</button>
-
 
 
   </form>
@@ -48,18 +51,16 @@
   				<td class="task"> <?php echo $row['task']; ?> </td>
           <td class="tijd"> <?php echo $row['tijd']; ?> </td>
           <td class="task_id"><?php echo $row['task_id']?></td>
-
           <td class="list_id"><?php echo $row['lists_id']?></td>
           <td>
 				<a href="editId.php?edit=<?php echo $row['task_id']; ?>" class="edit_btn" >Edit</a>
 			</td>
   				<td class="delete">
   					<a href="index.php?del_task=<?php echo $row['task_id'] ?>">x</a>
-
-
   				</td>
   			</tr>
   		<?php $i++; } ?>
+
   	</tbody>
 </body>
 </html>
