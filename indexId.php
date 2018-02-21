@@ -53,7 +53,7 @@
           <td class="task_id"><?php echo $row['task_id']?></td>
           <td class="list_id"><?php echo $row['lists_id']?></td>
           <td>
-				<a href="editId.php?edit=<?php echo $row['task_id']; ?>" class="edit_btn" >Edit</a>
+				<a href="editId.php?edit=<?php echo $row['task_id']; ?>&list_id=<?php echo $row['lists_id']?>" class="edit_btn" >Edit</a>
 			</td>
   				<td class="delete">
   					<a href="indexId.php?del_task3=<?php echo $row['task_id']?>&list_id=<?php echo $row['lists_id']?>">x</a>

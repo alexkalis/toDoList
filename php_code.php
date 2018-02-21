@@ -3,6 +3,9 @@ $errors = "";
 
 $db = mysqli_connect("localhost", "root", "", "todo");
 
+
+
+
 if (isset($_POST['submitId'])) {
   if(empty($_POST['task'])) {
     $errors = "You must fill in the task";
@@ -13,7 +16,7 @@ if (isset($_POST['submitId'])) {
     $task = $_POST['task'];
     $sqli = "INSERT INTO tasks (lists_id, task, tijd) VALUES ('$lists_id','$task','$tijd')";
     mysqli_query($db, $sqli);
-    header('Location: index.php?link_task'. $id);
+    header('Location: index.php?link_task='. $id);
   }
 };
 if (isset($_POST['submit'])) {

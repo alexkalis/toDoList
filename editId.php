@@ -2,8 +2,11 @@
 // including the database connection file
 $db = mysqli_connect("localhost", "root", "", "todo");
 
+
+
 if(isset($_POST['update']))
 {
+    $list_id = $_GET['list_id'];
     $id = $_GET['edit'];
 
     $task=$_POST['task'];
@@ -29,7 +32,7 @@ if(isset($_POST['update']))
         mysqli_query($db, $sql);
 
         //redirectig to the display page. In our case, it is index.php
-        header("Location: indexId.php");
+        header("Location: indexId.php?link_task=" . $list_id);
     }
 }
 ?>
@@ -37,6 +40,7 @@ if(isset($_POST['update']))
 //getting id from url
 
 $id = $_GET['edit'];
+$list_id = $_GET['list_id'];
 $query = "SELECT * FROM tasks WHERE task_id=" .$id;
 //selecting data associated with this particular id
 $result = mysqli_query($db, $query);
