@@ -15,9 +15,9 @@
     <h2 style="font-style:'Hervetica';">ToDo List Application PHP and MySQL database</h2>
   </div>
   <form method="post" action="index.php" class="input_form">
-    <input type="text" name="task" class="task_input">
-    <input type="text" name="tijd" class="task_input">
-    <input type="text" name="lists_id" class="task_input">
+    <input type="text" name="task" class="task_input" placeholder="de taak">
+    <input type="text" name="tijd" class="task_input" placeholder="de tijd">
+    <input type="text" name="lists_id" class="task_input" placeholder="het lists_id">
     <button type="submit" name="submit" id="add_btn" class="add_btn">Add task</button>
 
   </form>
@@ -51,7 +51,6 @@
 			</td>
   				<td class="delete">
             <a href="index.php?del_task=<?php echo $row['task_id'] ?>">x</a>
-
   				</td>
   			</tr>
   		<?php $i++; } ?>

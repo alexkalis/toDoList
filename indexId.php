@@ -16,9 +16,9 @@
     <h2 style="font-style:'Hervetica';">ToDo List Application PHP and MySQL database</h2>
   </div>
   <form method="post" action="indexid.php" class="input_form">
-    <input type="text" name="task" class="task_input">
-    <input type="text" name="tijd" class="task_input">
-    <input type="text" name="lists_id" class="task_input">
+    <input type="text" name="task" class="task_input" placeholder="de taak">
+    <input type="text" name="tijd" class="task_input" placeholder="de tijd">
+    <input type="text" name="lists_id" class="task_input" placeholder="het lists_id">
     <button type="submit" name="submit" id="add_btn" class="add_btn">Add task</button>
 
 
@@ -35,16 +35,16 @@
     </tr>
   </thead>
   <tbody>
-  		<?php
-  		// select all tasks if page is visited or refreshed
+    <?php
+    // select all tasks if page is visited or refreshed
       $query = "SELECT * FROM tasks";
       if (isset($_GET['link_task'])) {
-      	$id = $_GET['link_task'];
+        $id = $_GET['link_task'];
 
         $query = $query . " INNER JOIN lists ON tasks.lists_id = lists.id where lists.id =" . $id;
       }
 
-  		$tasks = mysqli_query($db, $query);
+      $tasks = mysqli_query($db, $query);
   		$i = 1; while ($row = mysqli_fetch_array($tasks)) { ?>
 
   				<td> <?php echo $i; ?> </td>
@@ -56,7 +56,7 @@
 				<a href="editId.php?edit=<?php echo $row['task_id']; ?>" class="edit_btn" >Edit</a>
 			</td>
   				<td class="delete">
-  					<a href="index.php?del_task=<?php echo $row['task_id'] ?>">x</a>
+  					<a href="indexId.php?del_task3=<?php echo $row['task_id']?>&list_id=<?php echo $row['lists_id']?>">x</a>
   				</td>
   			</tr>
   		<?php $i++; } ?>

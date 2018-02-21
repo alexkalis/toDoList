@@ -3,10 +3,6 @@ $errors = "";
 
 $db = mysqli_connect("localhost", "root", "", "todo");
 
-
-
-
-
 if (isset($_POST['submitId'])) {
   if(empty($_POST['task'])) {
     $errors = "You must fill in the task";
@@ -45,10 +41,21 @@ if(isset($_POST['listInput'])) {
 
 if (isset($_GET['del_task'])) {
 	$id = $_GET['del_task'];
-
 	mysqli_query($db, "DELETE FROM tasks WHERE task_id=".$id);
 	header('location: index.php');
 }
+
+
+
+if (isset($_GET['del_task3'])) {
+	$id = $_GET['del_task3'];
+  $lists_id = $_GET['list_id'];
+	mysqli_query($db, "DELETE FROM tasks WHERE task_id=".$id);
+	header('location: indexId.php?link_task=' . $lists_id);
+}
+
+
+
 
 if (isset($_GET['del_task2'])) {
 	$id = $_GET['del_task2'];

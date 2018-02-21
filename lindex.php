@@ -16,7 +16,7 @@
   </div>
 
   <form method="post" action="lindex.php" class="input_form ">
-    <input type="list" name="list" class="task_input">
+    <input type="list" name="list" class="task_input" placeholder="de naam van de lijst">
     <button type="submit" name="listInput" id="add_btn" class="add_btn">Add list</button>
   </form>
 

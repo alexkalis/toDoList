@@ -20,21 +20,24 @@
   <thead>
     <tr>
       <th>Nr:</th>
-      <th>Tijd:</th>
       <th>Id:</th>
+      <th>Lists_id</th>
+      <th>Tijd:</th>
     </tr>
   </thead>
   <tbody>
   		<?php
   		// select all tasks if page is visited or refreshed
-        $query = "SELECT tijd, task_id FROM tasks";
+        $query = "SELECT tijd, task_id, lists_id FROM tasks";
 
 
   		$tasks = mysqli_query($db, $query);
   		$i = 1; while ($row = mysqli_fetch_array($tasks)) { ?>
   				<td> <?php echo $i; ?> </td>
-          <td class="tijd"> <?php echo $row['tijd']; ?> </td>
           <td class="id"> <?php echo $row['task_id']; ?> </td>
+          <td class="id"> <?php echo $row['lists_id']; ?> </td>
+          <td class="tijd"> <?php echo $row['tijd']; ?> </td>
+
   			</tr>
   		<?php $i++; } ?>
 
